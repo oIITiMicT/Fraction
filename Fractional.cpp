@@ -24,6 +24,7 @@ public:
         num = n_num;
         denum = n_denum;
     };
+
     friend istream& operator>>(istream &in, Fraction &fract);
     friend ostream& operator<<(ostream &out, Fraction fract);
     friend Fraction& operator+=(Fraction& lhs, const Fraction& rhs);
@@ -36,24 +37,29 @@ public:
     friend Fraction& operator/=(Fraction& lhs, const Fraction& rhs);
     friend bool operator==(Fraction lhs, Fraction rhs);
     friend bool operator!=(Fraction lhs, Fraction rhs);
+
     Fraction operator++() {
         num += denum;
         return *this;
     }
+
     Fraction operator++(int) {
         Fraction prev = *this;
         ++*this;
         return prev;
     }
+
     Fraction operator--() {
         num -= denum;
         return *this;
     }
+
     Fraction operator--(int) {
         Fraction prev = *this;
         --*this;
         return prev;
     }
+
 private:
     void Rational() {
         Check();
@@ -61,6 +67,7 @@ private:
         num /= x;
         denum /= x;
     }
+
     void Check() {
         if (num != 0 && denum == 0) {
             cout << "Error: denominator cannot be zero \n";
@@ -85,6 +92,7 @@ private:
             }
         }
     }
+
     int num;
     int denum;
 };
